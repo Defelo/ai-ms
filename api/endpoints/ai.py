@@ -4,19 +4,23 @@ from api.services.ai_handler import AIHandler
 from fastapi import APIRouter, Depends, HTTPException, status
 from ..utils.docs import responses
 from api.auth import admin_auth, public_auth
-    
+
 router = APIRouter()
+
 
 class AIRequest(BaseModel):
     system_prompt: str
     user_prompt: str
 
+
 class AIResponse(BaseModel):
     output: str
 
+
 ai_handler = AIHandler()
 
-@router.post("/ai", response_model=AIResponse)
+
+@router.post("/ai", response_model=AIResponse, dependencies=[admin_auth])
 async def ai_endpoint(request: AIRequest):
     try:
         output = ai_handler.get_ai_response(request.system_prompt, request.user_prompt)

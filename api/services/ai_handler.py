@@ -1,5 +1,6 @@
 import openai
 
+
 class AIHandler:
     def __init__(self, provider="openai", model_name="gpt-4o-2024-08-06"):
         self.provider = provider
@@ -14,9 +15,6 @@ class AIHandler:
     def _call_openai(self, system_prompt: str, user_prompt: str) -> str:
         response = openai.ChatCompletion.create(
             model=self.model_name,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ]
+            messages=[{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
         )
-        return response.choices[0].message['content']
+        return response.choices[0].message["content"]
