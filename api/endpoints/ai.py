@@ -17,7 +17,7 @@ class AIResponse(BaseModel):
     output: str
 
 
-ai_handler = AIHandler()  # type: ignore
+ai_handler = AIHandler()
 
 
 @router.post("/ai", response_model=AIResponse, dependencies=[admin_auth], responses=admin_responses(AIResponse))

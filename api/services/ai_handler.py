@@ -3,11 +3,11 @@ from typing import Any
 
 
 class AIHandler:
-    def __init__(self, provider="openai", model_name="gpt-4o-2024-08-06") -> None:
+    def __init__(self, provider: str = "openai", model_name: str = "gpt-4o-2024-08-06") -> None:
         self.provider = provider
         self.model_name = model_name
 
-    def get_ai_response(self, system_prompt: str, user_prompt: str) -> str:
+    def get_ai_response(self, system_prompt: str, user_prompt: str) -> Any:
         if self.provider == "openai":
             return self._call_openai(system_prompt, user_prompt)
         else:
