@@ -24,7 +24,6 @@ class Settings(BaseSettings):
 
     lecture_xp: int = 10
 
-
     public_base_url: str = "http://localhost:8001"
 
     internal_jwt_ttl: int = 10
@@ -53,4 +52,4 @@ class Settings(BaseSettings):
     sentry_environment: str = "test"
 
 
-settings = Settings()  # type: ignore
+settings = Settings()
