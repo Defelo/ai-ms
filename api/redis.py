@@ -10,9 +10,9 @@ logger = get_logger(__name__)
 
 # global redis connection
 logger.debug("initializing redis connection")
-redis: Redis = cast(Callable[..., Redis[Any]], from_url)(  # type: ignore
+redis: Redis = cast(Callable[..., Redis], from_url)(  # type: ignore
     settings.redis_url, encoding="utf-8", decode_responses=True
 )
-auth_redis: Redis = cast(Callable[..., Redis[Any]], from_url)(  # type: ignore
+auth_redis: Redis = cast(Callable[..., Redis], from_url)(  # type: ignore
     settings.auth_redis_url, encoding="utf-8", decode_responses=True
 )
