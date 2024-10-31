@@ -27,6 +27,7 @@ PyJWT = "^2.4.0"
 annotated-types = "^0.7.0"
 openai= "^0.28.0"
 redis="*"
+gitpython = "^3.1.43"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^4.0.1"

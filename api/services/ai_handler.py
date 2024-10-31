@@ -14,7 +14,7 @@ class AIHandler:
             raise NotImplementedError(f"Provider '{self.provider}' is not supported.")
 
     def _call_openai(self, system_prompt: str, user_prompt: str) -> Any:
-        response = openai.ChatCompletion.create(
+        response = openai.ChatCompletion.create(  # type: ignore
             model=self.model_name,
             messages=[{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
         )
