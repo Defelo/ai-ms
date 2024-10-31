@@ -16,7 +16,7 @@ RUN set -ex \
 
 COPY api/version.py /build/
 COPY .git /build/.git/
-RUN python version.py
+RUN pip install gitpython && python version.py
 
 
 FROM python:3.10-alpine
