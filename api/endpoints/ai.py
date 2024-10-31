@@ -1,4 +1,3 @@
-from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 from api.services.ai_handler import AIHandler
 from fastapi import APIRouter, HTTPException, status

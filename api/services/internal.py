@@ -34,4 +34,5 @@ class InternalService(Enum):
             base_url=self.value.rstrip("/") + "/_internal",
             headers={"Authorization": self._get_token()},
             event_hooks={"response": [self._handle_error]},
+            timeout=10.0,
         )

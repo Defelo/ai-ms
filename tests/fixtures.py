@@ -19,7 +19,7 @@ async def database(monkeypatch: MonkeyPatch) -> None:
 
 @pytest.fixture
 async def client() -> AsyncIterator[AsyncClient]:
-    async with AsyncClient(app=app, base_url="http://test") as client:
+    async with AsyncClient(app=app, base_url="http://test", timeout=10.0) as client:
         yield client
 
 
